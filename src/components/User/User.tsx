@@ -21,7 +21,9 @@ export const User: FC<IUserProps> = ({ user }) => {
 
   return (
     <div id={user.id} className={styles.User}>
-      <img className={styles.User__Image} src={userImage} />
+      <div className={styles.User__ImageContainer}>
+        <img className={styles.User__Image} src={userImage} />
+      </div>
       <div className={styles.User__Content}>
         <UserInfo
           firstName={user.firstName}

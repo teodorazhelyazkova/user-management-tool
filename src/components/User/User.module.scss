@@ -1,15 +1,18 @@
 @use '../../styles/variables' as *;
 
 .User {
-  padding: 0.5em 1em;
   display: flex;
   gap: 3rem;
   align-items: center;
 
+  &__ImageContainer {
+    width: 72px;
+  }
+
   &__Image {
     width: 46px;
     height: 46px;
-    padding-bottom: 1rem;
+    margin: 0 auto;
   }
 
   &__Content {

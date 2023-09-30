@@ -15,14 +15,16 @@ export const FloatingButton: FC = () => {
   const inviteUserHandler = () => {};
 
   return (
-    <button
-      onClick={inviteUserHandler}
-      className={cn(styles.FloatingButton, {
-        [styles['FloatingButton--blue']]: isDashboardLocation,
-        [styles['FloatingButton--gray']]: !isDashboardLocation,
-      })}
-    >
-      {isDashboardLocation ? <AddIcon /> : <SettingsIcon />}
-    </button>
+    <div className={styles.Container}>
+      <button
+        onClick={inviteUserHandler}
+        className={cn(styles.FloatingButton, {
+          [styles['FloatingButton--blue']]: isDashboardLocation,
+          [styles['FloatingButton--gray']]: !isDashboardLocation,
+        })}
+      >
+        {isDashboardLocation ? <AddIcon /> : <SettingsIcon />}
+      </button>
+    </div>
   );
 };

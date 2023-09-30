@@ -1,12 +1,14 @@
 @use '../../styles/variables' as *;
 
 .FloatingButton {
-  display: flex;
-  align-self: center;
-  border: 0.1rem solid transparent;
+  border: none;
   border-radius: 50%;
+  width: 72px;
+  aspect-ratio: 1;
   color: $white;
-  padding: 1.5rem;
+  position: absolute;
+  top: -36px;
+  padding: 0;
 
   &--blue {
     background-color: $darkBlue;
@@ -16,4 +18,10 @@
   &--gray {
     background-color: $gray;
   }
+}
+
+.Container {
+  position: relative;
+  width: 100%;
+  padding-left: 8rem;
 }
