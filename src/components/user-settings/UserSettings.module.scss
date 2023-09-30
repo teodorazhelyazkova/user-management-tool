@@ -1,0 +1,52 @@
+@use '../../styles/variables' as *;
+
+.UserSettings {
+  display: flex;
+  gap: 3rem;
+
+  &__Placeholder {
+    width: 72px;
+  }
+
+  &__Container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 2px solid $graphite;
+    padding: 1rem 0;
+  }
+
+  &__Title {
+    font-weight: 600;
+    color: $black;
+
+    button {
+      display: flex;
+      border: none;
+      cursor: pointer;
+      opacity: 0.37;
+
+      &:active {
+        opacity: 1;
+      }
+
+      .noneEvent {
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__User {
+    flex-basis: 40%;
+  }
+
+  &__Role,
+  &__Status {
+    flex-basis: 20%;
+  }
+
+  &__Actions {
+    flex-basis: 5%;
+    pointer-events: none;
+  }
+}

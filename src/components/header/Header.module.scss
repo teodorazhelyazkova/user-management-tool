@@ -4,8 +4,8 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  border-bottom: $black 1px solid;
   background-color: $white;
+  box-shadow: 0px 3px 6px $shadow;
   padding: 6rem 8rem 3rem 8rem;
 
   &__Title {
