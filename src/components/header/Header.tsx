@@ -14,7 +14,9 @@ export const Header: FC = () => {
 
   return (
     <header className={styles.Header}>
-      <h1>{isDashboardLocation ? DASHBOARD_TITLE : USER_SETUP_TITLE}</h1>
+      <h1 className={styles.Header__Title}>
+        {isDashboardLocation ? DASHBOARD_TITLE : USER_SETUP_TITLE}
+      </h1>
       {isDashboardLocation && <Search />}
     </header>
   );
