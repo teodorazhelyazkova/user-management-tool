@@ -32,10 +32,6 @@ export const UserSettings: FC = () => {
     [ColumnHeaders.STATUS]: Sorting.NONE,
   });
 
-  useEffect(() => {
-    console.log(sorting);
-  }, [sorting]);
-
   const getSortingValue = (prevValue: Sorting): Sorting => {
     if (prevValue === Sorting.NONE) {
       return Sorting.ASC;
@@ -59,6 +55,10 @@ export const UserSettings: FC = () => {
       };
     });
   };
+
+  useEffect(() => {
+    console.log('sorting has beed changed..', sorting);
+  }, [sorting]);
 
   return (
     <section className={styles.UserSettings}>

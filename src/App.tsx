@@ -9,6 +9,7 @@ import { DASHBOARD_PATH, USER_SETUP_PATH } from './constants/paths';
 import { RootLayout } from './pages/root-layout/RootLayout';
 import { UserSetup } from './pages/user-setup/UserSetup';
 import { Dashboard } from './pages/dashboard/Dashboard';
+import { DataProvider } from './AppContext';
 
 const routesConfig = createRoutesFromElements(
   <Route path={DASHBOARD_PATH} element={<RootLayout />}>
@@ -20,5 +21,9 @@ const routesConfig = createRoutesFromElements(
 const router = createBrowserRouter(routesConfig);
 
 export const App: FC = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <DataProvider>
+      <RouterProvider router={router} />
+    </DataProvider>
+  );
 };
