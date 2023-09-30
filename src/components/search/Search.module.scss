@@ -1,0 +1,24 @@
+@use '../../styles/variables' as *;
+
+.Search {
+  display: flex;
+  border-bottom: 2px solid $graphite;
+
+  &__Bar {
+    width: 100%;
+    padding: 1rem;
+    border: 0.1rem solid transparent;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      font-style: italic;
+    }
+  }
+
+  &__Icon {
+    align-self: center;
+  }
+}
