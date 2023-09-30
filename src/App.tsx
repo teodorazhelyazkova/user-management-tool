@@ -6,7 +6,7 @@ import {
   createRoutesFromElements,
 } from 'react-router-dom';
 import { DASHBOARD_PATH, USER_SETUP_PATH } from './constants/paths';
-import { RootLayout } from './pages/RootLayout';
+import { RootLayout } from './pages/root-layout/RootLayout';
 import { UserSetup } from './pages/user-setup/UserSetup';
 import { Dashboard } from './pages/dashboard/Dashboard';
 
