@@ -1,5 +1,24 @@
 import { FC } from 'react';
+import {
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from 'react-router-dom';
+import { DASHBOARD_PATH, USER_SETUP_PATH } from './constants/paths';
+import { RootLayout } from './pages/RootLayout';
+import { UserSetup } from './pages/user-setup/UserSetup';
+import { Dashboard } from './pages/dashboard/Dashboard';
+
+const routesConfig = createRoutesFromElements(
+  <Route path={DASHBOARD_PATH} element={<RootLayout />}>
+    <Route index element={<Dashboard />} />
+    <Route path={USER_SETUP_PATH} element={<UserSetup />} />
+  </Route>
+);
+
+const router = createBrowserRouter(routesConfig);
 
 export const App: FC = () => {
-	return <></>;
+  return <RouterProvider router={router} />;
 };
