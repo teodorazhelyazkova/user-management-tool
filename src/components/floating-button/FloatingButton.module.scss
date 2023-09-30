@@ -1,0 +1,19 @@
+@use '../../styles/variables' as *;
+
+.FloatingButton {
+  display: flex;
+  align-self: center;
+  border: 0.1rem solid transparent;
+  border-radius: 50%;
+  color: $white;
+  padding: 1.5rem;
+
+  &--blue {
+    background-color: $darkBlue;
+    cursor: pointer;
+  }
+
+  &--gray {
+    background-color: $gray;
+  }
+}
