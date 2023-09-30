@@ -9,8 +9,8 @@ import userImage from '../../public/assets/user-image.svg';
 
 import styles from './User.module.scss';
 import { Toggle } from '../shared/Toggle/Toggle';
-import { UserInfo } from '../user-info/UserInfo';
-import { UserRole } from '../user-role/UserRole';
+import { UserInfo } from '../UserInfo/UserInfo';
+import { UserRole } from '../UserRole/UserRole';
 
 interface IUserProps {
   user: IUser;
