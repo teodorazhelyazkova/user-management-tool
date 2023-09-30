@@ -1,10 +1,13 @@
 import { FC } from 'react';
 import { Outlet } from 'react-router-dom';
+import { Container } from '../components/container/Container';
 
 export const RootLayout: FC = () => {
   return (
-    <main>
-      <Outlet />
-    </main>
+    <Container>
+      <main>
+        <Outlet />
+      </main>
+    </Container>
   );
 };
