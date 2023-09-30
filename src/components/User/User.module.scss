@@ -1,0 +1,44 @@
+@use '../../styles/variables' as *;
+
+.User {
+  padding: 0.5em 1em;
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+
+  &__Image {
+    width: 46px;
+    height: 46px;
+    padding-bottom: 1rem;
+  }
+
+  &__Content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid $graphite;
+    padding-bottom: 1rem;
+    align-items: center;
+  }
+
+  &__ToggleContainer {
+    flex-basis: 20%;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &__Buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1em;
+  }
+
+  &__Button {
+    color: $gray;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-self: center;
+  }
+}
