@@ -1,0 +1,44 @@
+@use '../../../styles/variables' as *;
+
+.Toggle {
+  --width: 41px;
+  --height: 23px;
+  --border-radius: calc(var(--height) / 2);
+
+  display: inline-block;
+  cursor: pointer;
+
+  &__Input {
+    display: none;
+
+    &:checked ~ .Toggle__Fill {
+      background: $lightBlue;
+
+      &::after {
+        transform: translateX(var(--height));
+        background-color: $blue;
+      }
+    }
+  }
+
+  &__Fill {
+    position: relative;
+    width: var(--width);
+    height: var(--height);
+    border-radius: var(--border-radius);
+    background-color: $lightRed;
+    transition: background-color 0.2s;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: var(--height);
+      width: var(--height);
+      background: $red;
+      border-radius: var(--border-radius);
+      transition: transform 0.2s;
+    }
+  }
+}
