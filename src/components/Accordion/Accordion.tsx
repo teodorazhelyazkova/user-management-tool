@@ -16,6 +16,8 @@ export const Accordion: FC<IAccordionProps> = ({
 }: IAccordionProps) => {
   const [isActive, setIsActive] = useState<boolean>(false);
 
+  const permissionsStatusToggleHandler = () => {};
+
   return (
     <>
       <div
@@ -34,14 +36,20 @@ export const Accordion: FC<IAccordionProps> = ({
           )}
           {title}
         </div>
-        <Toggle />
+        <Toggle
+          isActive={false}
+          onToggleChange={permissionsStatusToggleHandler}
+        />
       </div>
       {isActive &&
         content.map(
           (subPermession: { id: string; label: string; status: boolean }) => (
             <div key={subPermession.id} className={styles.Accordion__ListItem}>
               <li>{subPermession.label}</li>
-              <Toggle />
+              <Toggle
+                isActive={false}
+                onToggleChange={permissionsStatusToggleHandler}
+              />
             </div>
           )
         )}
