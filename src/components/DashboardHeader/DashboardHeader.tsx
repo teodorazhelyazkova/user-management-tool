@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect } from 'react';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
-import styles from './UserSettings.module.scss';
+import styles from './DashboardHeader.module.scss';
 import { useData } from '../../AppContext';
 import { IUser } from '../User/interface/User.interface';
 
@@ -23,7 +23,7 @@ const ICONS = {
   [Sorting.NONE]: <></>,
 };
 
-export const UserSettings: FC = () => {
+export const DashboardHeader: FC = () => {
   const data = useData()!;
   const [sortColumn, setSortColumn] = useState<ColumnHeaders | null>(null);
   const [sortOrder, setSortOrder] = useState<Sorting>(Sorting.NONE);
@@ -50,7 +50,7 @@ export const UserSettings: FC = () => {
   };
 
   useEffect(() => {
-    const sortedUsers = [...data.modifiedUsers];
+    const sortedUsers = [...data.users];
 
     switch (sortOrder) {
       case Sorting.ASC:
@@ -81,7 +81,7 @@ export const UserSettings: FC = () => {
         break;
     }
 
-    data.setModifiedUsers(sortedUsers);
+    data.setUsers(sortedUsers);
   }, [sortColumn, sortOrder]);
 
   return (

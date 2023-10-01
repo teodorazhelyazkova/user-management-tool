@@ -1,9 +1,10 @@
-import { createContext, useState, useContext, useEffect } from 'react';
+import { createContext, useState, useContext } from 'react';
 import { IUser } from './components/User/interface/User.interface';
 import data from './data/data.json';
 
 interface IAppContext {
   users: IUser[];
+  setUsers: (value: IUser[]) => void;
   searchValue: string;
   setSearchValue: (value: string) => void;
   modifiedUsers: IUser[];
@@ -26,15 +27,6 @@ const useDataProvider = () => {
   const [users, setUsers] = useState<IUser[]>(data.users);
   const [searchValue, setSearchValue] = useState<string>('');
   const [modifiedUsers, setModifiedUsers] = useState<IUser[]>([]);
-
-  useEffect(() => {
-    setModifiedUsers(
-      users.filter((user) => {
-        const fullName = `${user.firstName} ${user.lastName}`;
-        return fullName.toLowerCase().includes(searchValue.toLowerCase());
-      })
-    );
-  }, [searchValue, users]);
 
   return {
     users,
