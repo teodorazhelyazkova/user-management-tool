@@ -4,5 +4,14 @@ export interface IUser {
   lastName: string;
   email: string;
   role: string;
-  status: string;
+  isActive: boolean;
+  permissions: {
+    [key: string]: {
+      status: boolean;
+      subpermissions?: {
+        label: string;
+        value: boolean;
+      }[];
+    };
+  };
 }
