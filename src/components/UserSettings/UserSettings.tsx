@@ -1,7 +1,9 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import styles from './UserSettings.module.scss';
+import { useData } from '../../AppContext';
+import { IUser } from '../User/interface/User.interface';
 
 enum Sorting {
   ASC = 'asc',
@@ -22,15 +24,9 @@ const ICONS = {
 };
 
 export const UserSettings: FC = () => {
-  const [sorting, setSorting] = useState<{
-    USER: Sorting;
-    ROLE: Sorting;
-    STATUS: Sorting;
-  }>({
-    [ColumnHeaders.USER]: Sorting.NONE,
-    [ColumnHeaders.ROLE]: Sorting.NONE,
-    [ColumnHeaders.STATUS]: Sorting.NONE,
-  });
+  const data = useData()!;
+  const [sortColumn, setSortColumn] = useState<ColumnHeaders | null>(null);
+  const [sortOrder, setSortOrder] = useState<Sorting>(Sorting.NONE);
 
   const getSortingValue = (prevValue: Sorting): Sorting => {
     if (prevValue === Sorting.NONE) {
@@ -42,23 +38,51 @@ export const UserSettings: FC = () => {
     return Sorting.NONE;
   };
 
-  const clickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const clickedButton = (e.target as HTMLButtonElement).name as ColumnHeaders;
+  const sortHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const column = (e.target as HTMLButtonElement).name as ColumnHeaders;
 
-    setSorting((prevState) => {
-      const prevValue: Sorting = prevState[clickedButton];
-      const newValue: Sorting = getSortingValue(prevValue);
-
-      return {
-        ...prevState,
-        [clickedButton]: newValue,
-      };
-    });
+    if (column !== sortColumn) {
+      setSortColumn(column);
+      setSortOrder(Sorting.ASC);
+    } else {
+      setSortOrder((prevState) => getSortingValue(prevState));
+    }
   };
 
   useEffect(() => {
-    console.log('sorting has beed changed..', sorting);
-  }, [sorting]);
+    const sortedUsers = [...data.modifiedUsers];
+
+    switch (sortOrder) {
+      case Sorting.ASC:
+        if (sortColumn === ColumnHeaders.STATUS) {
+          sortedUsers.sort(
+            (a: IUser, b: IUser) => Number(a.isActive) - Number(b.isActive)
+          );
+        } else if (sortColumn == ColumnHeaders.USER) {
+          sortedUsers.sort((a, b) => a.firstName.localeCompare(b.firstName));
+        } else {
+          sortedUsers.sort((a, b) => a.role.localeCompare(b.role));
+        }
+        break;
+
+      case Sorting.DESC:
+        if (sortColumn === ColumnHeaders.STATUS) {
+          sortedUsers.sort(
+            (a: IUser, b: IUser) => Number(b.isActive) - Number(a.isActive)
+          );
+        } else if (sortColumn == ColumnHeaders.USER) {
+          sortedUsers.sort((a, b) => b.firstName.localeCompare(a.firstName));
+        } else {
+          sortedUsers.sort((a, b) => b.role.localeCompare(a.role));
+        }
+        break;
+
+      default:
+        break;
+    }
+
+    data.setModifiedUsers(sortedUsers);
+  }, [sortColumn, sortOrder]);
 
   return (
     <section className={styles.UserSettings}>
@@ -67,25 +91,28 @@ export const UserSettings: FC = () => {
         <div
           className={`${styles.UserSettings__Title} ${styles.UserSettings__User}`}
         >
-          <button name={ColumnHeaders.USER} onClick={clickHandler}>
+          <button name={ColumnHeaders.USER} onClick={sortHandler}>
             {ColumnHeaders.USER}
-            {ICONS[sorting[ColumnHeaders.USER] || Sorting.NONE]}
+            {sortColumn === ColumnHeaders.USER &&
+              ICONS[sortOrder || Sorting.NONE]}
           </button>
         </div>
         <div
           className={`${styles.UserSettings__Title} ${styles.UserSettings__Role}`}
         >
-          <button name={ColumnHeaders.ROLE} onClick={clickHandler}>
+          <button name={ColumnHeaders.ROLE} onClick={sortHandler}>
             {ColumnHeaders.ROLE}
-            {ICONS[sorting[ColumnHeaders.ROLE] || Sorting.NONE]}
+            {sortColumn === ColumnHeaders.ROLE &&
+              ICONS[sortOrder || Sorting.NONE]}
           </button>
         </div>
         <div
           className={`${styles.UserSettings__Title} ${styles.UserSettings__Status}`}
         >
-          <button name={ColumnHeaders.STATUS} onClick={clickHandler}>
+          <button name={ColumnHeaders.STATUS} onClick={sortHandler}>
             {ColumnHeaders.STATUS}
-            {ICONS[sorting[ColumnHeaders.STATUS] || Sorting.NONE]}
+            {sortColumn === ColumnHeaders.STATUS &&
+              ICONS[sortOrder || Sorting.NONE]}
           </button>
         </div>
         <div

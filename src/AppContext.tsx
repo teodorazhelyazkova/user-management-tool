@@ -7,6 +7,7 @@ interface IAppContext {
   searchValue: string;
   setSearchValue: (value: string) => void;
   modifiedUsers: IUser[];
+  setModifiedUsers: (value: IUser[]) => void;
 }
 export const AppContext = createContext<IAppContext | null>(null);
 
