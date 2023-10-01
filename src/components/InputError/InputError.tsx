@@ -7,13 +7,5 @@ interface InputErrorProps {
 }
 
 export const InputError: FC<InputErrorProps> = ({ error }) => {
-  return (
-    <p
-      className={cn(styles.Error, {
-        [styles['Error--noError']]: error === 'Good to go',
-      })}
-    >
-      {error}
-    </p>
-  );
+  return <p className={cn(styles.Error)}>{error}</p>;
 };

@@ -70,7 +70,7 @@ export const InviteUserForm: FC<InviteUserFormProps> = (props) => {
           type={'secondary'}
           size={'small'}
         />
-        <InputError error={props.isInputValid ? 'Good to go' : props.error} />
+        <InputError error={props.error} />
       </div>
     </form>
   );
