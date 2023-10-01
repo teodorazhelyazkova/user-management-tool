@@ -1,3 +1,6 @@
-@forward "./reset";
-@use "./variables" as *;
+@forward './reset';
+@use './variables' as *;
 
+.disabled {
+  opacity: 0.35;
+}
