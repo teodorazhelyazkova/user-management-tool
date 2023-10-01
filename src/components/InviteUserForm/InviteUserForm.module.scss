@@ -21,6 +21,7 @@
 
   &__Names {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     gap: 0.5rem;
     width: 100%;
@@ -28,13 +29,9 @@
   }
 
   &__Email {
+    display: flex;
     position: relative;
     width: 100%;
-  }
-
-  &__Label {
-    color: $blue;
-    font-size: 0.75rem;
   }
 
   &__Role {
@@ -43,19 +40,9 @@
   }
 
   &__Icon {
+    align-self: center;
     position: absolute;
     left: -50px;
-  }
-
-  &__Select {
-    width: 100%;
-    padding: 0.5rem;
-    border: none;
-    border-bottom: 2px solid $graphite;
-
-    &:focus {
-      outline: none;
-    }
   }
 
   &__ButtonContainer {

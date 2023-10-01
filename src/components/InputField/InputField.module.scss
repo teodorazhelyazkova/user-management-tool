@@ -2,9 +2,10 @@
 
 .Input {
   position: relative;
-  margin: 20px auto 10px auto;
+  margin: 20px 0 10px 0;
 
   &__Control {
+    background: transparent;
     display: block;
     line-height: 2em;
     margin: 0;

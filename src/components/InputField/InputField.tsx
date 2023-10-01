@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import './FloatingLabel.scss';
 import styles from './InputField.module.scss';
 
 interface InputFieldProps {
@@ -10,6 +9,7 @@ interface InputFieldProps {
   isValid: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   label: string;
+  defaultValue?: string;
 }
 
 export const InputField: FC<InputFieldProps> = (props) => {
@@ -25,6 +25,7 @@ export const InputField: FC<InputFieldProps> = (props) => {
         readOnly={props.readOnly}
         autoComplete="off"
         onChange={props.onChange}
+        {...(props.defaultValue && { defaultValue: props.defaultValue })}
       />
       <label
         htmlFor={props.name}

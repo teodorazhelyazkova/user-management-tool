@@ -8,6 +8,7 @@ import { Title } from '../Title/Title';
 import FaceIcon from '@mui/icons-material/Face';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
+import RoleSelect from '../RoleSelect/RoleSelect';
 
 interface InviteUserFormProps {
   isVisible: boolean;
@@ -59,17 +60,7 @@ export const InviteUserForm: FC<InviteUserFormProps> = (props) => {
 
       <div className={`${styles.InviteUserForm__Role}`}>
         <VpnKeyIcon className={styles.InviteUserForm__Icon} />
-        <label htmlFor="role" className={styles.InviteUserForm__Label}>
-          * Role
-        </label>
-        <select
-          className={`${styles.InviteUserForm__Select}`}
-          name="role"
-          placeholder="Role"
-        >
-          <option value="Admin">Admin</option>
-          <option value="User">User</option>
-        </select>
+        <RoleSelect />
       </div>
 
       <div className={styles.InviteUserForm__ButtonContainer}>
