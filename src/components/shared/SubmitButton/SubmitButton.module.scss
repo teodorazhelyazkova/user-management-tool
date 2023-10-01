@@ -1,0 +1,27 @@
+@use '../../../styles/variables' as *;
+
+.SubmitButton {
+  border: none;
+  outline: none;
+  color: $white;
+  box-shadow: 0px 3px 6px $shadow;
+  border-radius: 100px;
+  cursor: pointer;
+
+  &--primary {
+    background: $purple 0% 0% no-repeat padding-box;
+  }
+
+  &--secondary {
+    background: $blue;
+  }
+
+  &--small {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.75rem;
+  }
+
+  &--medium {
+    padding: 1.125rem 2rem;
+  }
+}
