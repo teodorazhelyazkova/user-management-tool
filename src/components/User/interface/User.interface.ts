@@ -6,12 +6,13 @@ export interface IUser {
   role: string;
   isActive: boolean;
   permissions: {
-    [key: string]: {
+    id: string;
+    label: string;
+    status: boolean;
+    subpermissions?: {
+      id: string;
+      label: string;
       status: boolean;
-      subpermissions?: {
-        label: string;
-        value: boolean;
-      }[];
-    };
-  };
+    }[];
+  }[];
 }

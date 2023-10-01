@@ -7,31 +7,49 @@
       "email": "john.doe@example.com",
       "role": "Admin",
       "isActive": true,
-      "permissions": {
-        "SuperAdmin": {
+      "permissions": [
+        {
+          "id": "20",
+          "label": "SuperAdmin",
           "status": true
         },
-        "group1": {
+        {
+          "id": "1",
+          "label": "Permission group 1",
           "status": true,
           "subpermissions": [
-            { "label": "Permission 11", "value": true },
-            { "label": "Permission 12", "value": true },
-            { "label": "Permission 13", "value": true }
+            { "id": "21", "label": "Permission 11", "status": false },
+            { "id": "22", "label": "Permission 12", "status": true },
+            { "id": "23", "label": "Permission 13", "status": true },
+            { "id": "24", "label": "Permission 14", "status": false },
+            { "id": "25", "label": "Permission 15", "status": true }
           ]
         },
-        "group2": {
+        {
+          "id": "2",
+          "label": "Permission group 2",
           "status": true,
           "subpermissions": [
-            { "label": "Permission 11", "value": true },
-            { "label": "Permission 12", "value": true },
-            { "label": "Permission 13", "value": true }
+            { "id": "26", "label": "Permission 11", "status": false },
+            { "id": "27", "label": "Permission 12", "status": true },
+            { "id": "28", "label": "Permission 13", "status": true },
+            { "id": "29", "label": "Permission 14", "status": false },
+            { "id": "30", "label": "Permission 15", "status": true }
           ]
         },
-        "group3": {
+        {
+          "id": "3",
+          "label": "Permission group 3",
           "status": true,
-          "subpermissions": [{ "label": "Permission 14", "value": true }]
+          "subpermissions": [
+            { "id": "31", "label": "Permission 11", "status": false },
+            { "id": "32", "label": "Permission 12", "status": true },
+            { "id": "33", "label": "Permission 13", "status": true },
+            { "id": "34", "label": "Permission 14", "status": false },
+            { "id": "35", "label": "Permission 15", "status": true }
+          ]
         }
-      }
+      ]
     },
     {
       "id": "2",
@@ -40,27 +58,49 @@
       "email": "alice.smith@example.com",
       "role": "User",
       "isActive": true,
-      "permissions": {
-        "group1": {
-          "status": true,
-          "subpermissions": [
-            { "label": "Permission 11", "value": true },
-            { "label": "Permission 12", "value": true },
-            { "label": "Permission 13", "value": false }
-          ]
-        },
-        "group2": {
-          "status": true,
-          "subpermissions": [
-            { "label": "Permission 11", "value": true },
-            { "label": "Permission 12", "value": true },
-            { "label": "Permission 13", "value": false }
-          ]
-        },
-        "group3": {
+      "permissions": [
+        {
+          "id": "19",
+          "label": "SuperAdmin",
           "status": false
+        },
+        {
+          "id": "4",
+          "label": "Permission group 1",
+          "status": true,
+          "subpermissions": [
+            { "id": "36", "label": "Permission 11", "status": false },
+            { "id": "37", "label": "Permission 12", "status": true },
+            { "id": "38", "label": "Permission 13", "status": true },
+            { "id": "39", "label": "Permission 14", "status": false },
+            { "id": "40", "label": "Permission 15", "status": true }
+          ]
+        },
+        {
+          "id": "5",
+          "label": "Permission group 2",
+          "status": true,
+          "subpermissions": [
+            { "id": "41", "label": "Permission 11", "status": false },
+            { "id": "42", "label": "Permission 12", "status": true },
+            { "id": "43", "label": "Permission 13", "status": true },
+            { "id": "44", "label": "Permission 14", "status": false },
+            { "id": "45", "label": "Permission 15", "status": true }
+          ]
+        },
+        {
+          "id": "6",
+          "label": "Permission group 3",
+          "status": true,
+          "subpermissions": [
+            { "id": "46", "label": "Permission 11", "status": false },
+            { "id": "47", "label": "Permission 12", "status": true },
+            { "id": "48", "label": "Permission 13", "status": true },
+            { "id": "49", "label": "Permission 14", "status": false },
+            { "id": "50", "label": "Permission 15", "status": true }
+          ]
         }
-      }
+      ]
     },
     {
       "id": "3",
@@ -69,27 +109,49 @@
       "email": "bob.johnson@example.com",
       "role": "User",
       "isActive": true,
-      "permissions": {
-        "group1": {
+      "permissions": [
+        {
+          "id": "18",
+          "label": "SuperAdmin",
+          "status": true
+        },
+        {
+          "id": "7",
+          "label": "Permission group 1",
           "status": true,
           "subpermissions": [
-            { "label": "Permission 11", "value": true },
-            { "label": "Permission 12", "value": true },
-            { "label": "Permission 13", "value": false }
+            { "id": "51", "label": "Permission 11", "status": false },
+            { "id": "52", "label": "Permission 12", "status": true },
+            { "id": "53", "label": "Permission 13", "status": true },
+            { "id": "54", "label": "Permission 14", "status": false },
+            { "id": "55", "label": "Permission 15", "status": true }
           ]
         },
-        "group2": {
+        {
+          "id": "8",
+          "label": "Permission group 2",
           "status": true,
           "subpermissions": [
-            { "label": "Permission 11", "value": true },
-            { "label": "Permission 12", "value": true },
-            { "label": "Permission 13", "value": false }
+            { "id": "56", "label": "Permission 11", "status": false },
+            { "id": "57", "label": "Permission 12", "status": true },
+            { "id": "58", "label": "Permission 13", "status": true },
+            { "id": "59", "label": "Permission 14", "status": false },
+            { "id": "60", "label": "Permission 15", "status": true }
           ]
         },
-        "group3": {
-          "status": false
+        {
+          "id": "9",
+          "label": "Permission group 3",
+          "status": true,
+          "subpermissions": [
+            { "id": "61", "label": "Permission 11", "status": false },
+            { "id": "62", "label": "Permission 12", "status": true },
+            { "id": "63", "label": "Permission 13", "status": true },
+            { "id": "64", "label": "Permission 14", "status": false },
+            { "id": "65", "label": "Permission 15", "status": true }
+          ]
         }
-      }
+      ]
     },
     {
       "id": "4",
@@ -98,28 +160,49 @@
       "email": "eve.davis@example.com",
       "role": "Admin",
       "isActive": false,
-      "permissions": {
-        "group1": {
+      "permissions": [
+        {
+          "id": "17",
+          "label": "SuperAdmin",
+          "status": false
+        },
+        {
+          "id": "10",
+          "label": "Permission group 1",
           "status": true,
           "subpermissions": [
-            { "label": "Permission 11", "value": true },
-            { "label": "Permission 12", "value": true },
-            { "label": "Permission 13", "value": true }
+            { "id": "66", "label": "Permission 11", "status": false },
+            { "id": "67", "label": "Permission 12", "status": true },
+            { "id": "68", "label": "Permission 13", "status": true },
+            { "id": "69", "label": "Permission 14", "status": false },
+            { "id": "70", "label": "Permission 15", "status": true }
           ]
         },
-        "group2": {
+        {
+          "id": "11",
+          "label": "Permission group 2",
           "status": true,
           "subpermissions": [
-            { "label": "Permission 11", "value": true },
-            { "label": "Permission 12", "value": true },
-            { "label": "Permission 13", "value": true }
+            { "id": "71", "label": "Permission 11", "status": false },
+            { "id": "72", "label": "Permission 12", "status": true },
+            { "id": "73", "label": "Permission 13", "status": true },
+            { "id": "74", "label": "Permission 14", "status": false },
+            { "id": "75", "label": "Permission 15", "status": true }
           ]
         },
-        "group3": {
+        {
+          "id": "12",
+          "label": "Permission group 3",
           "status": true,
-          "subpermissions": [{ "label": "Permission 14", "value": true }]
+          "subpermissions": [
+            { "id": "76", "label": "Permission 11", "status": false },
+            { "id": "77", "label": "Permission 12", "status": true },
+            { "id": "78", "label": "Permission 13", "status": true },
+            { "id": "79", "label": "Permission 14", "status": false },
+            { "id": "80", "label": "Permission 15", "status": true }
+          ]
         }
-      }
+      ]
     },
     {
       "id": "5",
@@ -128,28 +211,49 @@
       "email": "charlie.brown@example.com",
       "role": "User",
       "isActive": true,
-      "permissions": {
-        "group1": {
+      "permissions": [
+        {
+          "id": "16",
+          "label": "SuperAdmin",
+          "status": false
+        },
+        {
+          "id": "13",
+          "label": "Permission group 1",
           "status": true,
           "subpermissions": [
-            { "label": "Permission 11", "value": true },
-            { "label": "Permission 12", "value": true },
-            { "label": "Permission 13", "value": true }
+            { "id": "81", "label": "Permission 11", "status": false },
+            { "id": "82", "label": "Permission 12", "status": true },
+            { "id": "83", "label": "Permission 13", "status": true },
+            { "id": "84", "label": "Permission 14", "status": false },
+            { "id": "85", "label": "Permission 15", "status": true }
           ]
         },
-        "group2": {
+        {
+          "id": "14",
+          "label": "Permission group 2",
           "status": true,
           "subpermissions": [
-            { "label": "Permission 11", "value": true },
-            { "label": "Permission 12", "value": true },
-            { "label": "Permission 13", "value": true }
+            { "id": "86", "label": "Permission 11", "status": false },
+            { "id": "87", "label": "Permission 12", "status": true },
+            { "id": "88", "label": "Permission 13", "status": true },
+            { "id": "89", "label": "Permission 14", "status": false },
+            { "id": "90", "label": "Permission 15", "status": true }
           ]
         },
-        "group3": {
+        {
+          "id": "15",
+          "label": "Permission group 3",
           "status": true,
-          "subpermissions": [{ "label": "Permission 14", "value": true }]
+          "subpermissions": [
+            { "id": "91", "label": "Permission 11", "status": false },
+            { "id": "92", "label": "Permission 12", "status": true },
+            { "id": "93", "label": "Permission 13", "status": true },
+            { "id": "94", "label": "Permission 14", "status": false },
+            { "id": "95", "label": "Permission 15", "status": true }
+          ]
         }
-      }
+      ]
     }
   ]
 }
