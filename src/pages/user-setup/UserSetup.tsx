@@ -6,7 +6,7 @@ import { Title } from '../../components/Title/Title';
 import { Accordion } from '../../components/Accordion/Accordion';
 
 export const UserSetup: FC = () => {
-  const data = useData();
+  const data = useData()!;
   const params = useParams();
 
   const userDetails = data.users.find((user) => user.id === params.id);

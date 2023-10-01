@@ -4,7 +4,7 @@ import { User } from '../User/User';
 import { useData } from '../../AppContext';
 
 export const UsersList: FC = () => {
-  const data = useData();
+  const data = useData()!;
   // TODO: add filtering
   const filteredUsers = data.users;
 

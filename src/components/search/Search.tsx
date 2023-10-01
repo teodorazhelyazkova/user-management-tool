@@ -1,9 +1,14 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
+import { useData } from '../../AppContext';
 import styles from './Search.module.scss';
 
 export const Search: FC = () => {
-  const searchHandler = () => {};
+  const data = useData()!;
+
+  const searchHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    data.setSearchValue(e.target.value);
+  };
 
   return (
     <section className={styles.Search}>

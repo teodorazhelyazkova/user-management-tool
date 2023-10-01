@@ -4,10 +4,10 @@ import data from './data/data.json';
 
 interface IAppContext {
   users: IUser[];
+  searchValue: string;
+  setSearchValue: (value: string) => void;
 }
-export const AppContext = createContext<IAppContext>({
-  users: [],
-});
+export const AppContext = createContext<IAppContext | null>(null);
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const DataProvider = ({ children }: { children: any }) => {
@@ -22,5 +22,7 @@ export const useData = () => {
 
 const useDataProvider = () => {
   const [users, setUsers] = useState(data.users);
-  return { users, setUsers };
+  const [searchValue, setSearchValue] = useState<string>('');
+
+  return { users, searchValue, setUsers, setSearchValue };
 };
