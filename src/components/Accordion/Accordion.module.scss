@@ -1,7 +1,15 @@
+@use '../../styles/variables' as *;
+
 .Accordion {
   &__TitleContainer {
     display: flex;
     justify-content: space-between;
+    border-bottom: 2px solid $graphite;
+    padding: 1rem 0 2rem 0;
+  }
+
+  &__Title {
+    font-weight: bold;
   }
 
   &__ListItem {

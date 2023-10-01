@@ -126,13 +126,18 @@ export const UserSetup: FC = () => {
 
       <section className={styles.UserSetup__Permissions}>
         <Title title="Permissions" />
-        {userDetails?.permissions.map((permissionGroup) => (
-          <Accordion
-            status={permissionGroup.status}
-            title={permissionGroup.label}
-            content={permissionGroup.subpermissions ?? []}
-          />
-        ))}
+        <section>
+          {userDetails.permissions.map((permissionGroup) => (
+            <Accordion
+              key={permissionGroup.id}
+              userId={userDetails.id}
+              groupId={permissionGroup.id}
+              status={permissionGroup.status}
+              title={permissionGroup.label}
+              content={permissionGroup.subpermissions ?? []}
+            />
+          ))}
+        </section>
       </section>
     </section>
   );

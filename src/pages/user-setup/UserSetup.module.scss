@@ -105,5 +105,8 @@
 
   &__Permissions {
     flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
   }
 }
