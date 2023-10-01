@@ -4,6 +4,7 @@ import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import styles from './DashboardHeader.module.scss';
 import { useData } from '../../AppContext';
 import { IUser } from '../User/interface/User.interface';
+import cn from 'classnames';
 
 enum Sorting {
   ASC = 'asc',
@@ -89,7 +90,10 @@ export const DashboardHeader: FC = () => {
       <div className={styles.UserSettings__Placeholder}></div>
       <div className={styles.UserSettings__Container}>
         <div
-          className={`${styles.UserSettings__Title} ${styles.UserSettings__User}`}
+          className={cn(styles.UserSettings__Title, styles.UserSettings__User, {
+            [styles.active]:
+              sortColumn === ColumnHeaders.USER && sortOrder !== Sorting.NONE,
+          })}
         >
           <button name={ColumnHeaders.USER} onClick={sortHandler}>
             {ColumnHeaders.USER}
@@ -98,7 +102,10 @@ export const DashboardHeader: FC = () => {
           </button>
         </div>
         <div
-          className={`${styles.UserSettings__Title} ${styles.UserSettings__Role}`}
+          className={cn(styles.UserSettings__Title, styles.UserSettings__Role, {
+            [styles.active]:
+              sortColumn === ColumnHeaders.ROLE && sortOrder !== Sorting.NONE,
+          })}
         >
           <button name={ColumnHeaders.ROLE} onClick={sortHandler}>
             {ColumnHeaders.ROLE}
@@ -107,7 +114,15 @@ export const DashboardHeader: FC = () => {
           </button>
         </div>
         <div
-          className={`${styles.UserSettings__Title} ${styles.UserSettings__Status}`}
+          className={cn(
+            styles.UserSettings__Title,
+            styles.UserSettings__Status,
+            {
+              [styles.active]:
+                sortColumn === ColumnHeaders.STATUS &&
+                sortOrder !== Sorting.NONE,
+            }
+          )}
         >
           <button name={ColumnHeaders.STATUS} onClick={sortHandler}>
             {ColumnHeaders.STATUS}

@@ -12,6 +12,7 @@ import { Toggle } from '../../components/shared/Toggle/Toggle';
 import { InputField } from '../../components/InputField/InputField';
 import { IUser } from '../../components/User/interface/User.interface';
 import RoleSelect from '../../components/RoleSelect/RoleSelect';
+import cn from 'classnames';
 
 export const UserSetup: FC = () => {
   const data = useData()!;
@@ -53,10 +54,20 @@ export const UserSetup: FC = () => {
                 src={whiteKeyImg}
               />
             </div>
-            <p className={styles.UserSetup__Profile__Upload}>upload a photo</p>
+            <p
+              className={cn(styles.UserSetup__Profile__Upload, {
+                disabled: !userDetails.isActive,
+              })}
+            >
+              upload a photo
+            </p>
           </div>
 
-          <div className={styles.UserSetup__Profile__Info}>
+          <div
+            className={cn(styles.UserSetup__Profile__Info, {
+              disabled: !userDetails.isActive,
+            })}
+          >
             <ProfileDetails
               firstName={userDetails.firstName}
               lastName={userDetails.lastName}
@@ -67,12 +78,14 @@ export const UserSetup: FC = () => {
           </div>
         </div>
 
-        <SubmitButton
-          label="Resend the invite"
-          disabled={false}
-          type="primary"
-          size="medium"
-        />
+        {userDetails.isActive && (
+          <SubmitButton
+            label="Resend the invite"
+            disabled={false}
+            type="primary"
+            size="medium"
+          />
+        )}
       </section>
 
       <section className={styles.UserSetup__Details}>
@@ -92,7 +105,11 @@ export const UserSetup: FC = () => {
                 <strong>{userDetails.isActive ? 'Active' : 'Inactive'}</strong>
               </p>
             </div>
-            <div>
+            <div
+              className={cn({
+                disabled: !userDetails.isActive,
+              })}
+            >
               <InputField
                 type="text"
                 readOnly={false}
@@ -114,19 +131,25 @@ export const UserSetup: FC = () => {
           </div>
         </div>
 
-        <div className={styles.UserSetup__Details__Btn}>
-          <SubmitButton
-            label="Save Changes"
-            disabled={false}
-            type="secondary"
-            size="medium"
-          />
-        </div>
+        {userDetails.isActive && (
+          <div className={styles.UserSetup__Details__Btn}>
+            <SubmitButton
+              label="Save Changes"
+              disabled={false}
+              type="secondary"
+              size="medium"
+            />
+          </div>
+        )}
       </section>
 
       <section className={styles.UserSetup__Permissions}>
         <Title title="Permissions" />
-        <section>
+        <section
+          className={cn({
+            disabled: !userDetails.isActive,
+          })}
+        >
           {userDetails.permissions.map((permissionGroup) => (
             <Accordion
               key={permissionGroup.id}
