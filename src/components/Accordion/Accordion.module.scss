@@ -1,0 +1,11 @@
+.Accordion {
+  &__TitleContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__ListItem {
+    display: flex;
+    justify-content: space-between;
+  }
+}
