@@ -5,12 +5,10 @@ import { useData } from '../../AppContext';
 
 export const UsersList: FC = () => {
   const data = useData()!;
-  // TODO: add filtering
-  const filteredUsers = data.users;
 
   return (
     <section className={styles.UsersList}>
-      {filteredUsers.map((user) => (
+      {data.modifiedUsers.map((user) => (
         <User user={user} key={user.id} />
       ))}
     </section>
