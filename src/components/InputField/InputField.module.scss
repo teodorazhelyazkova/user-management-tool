@@ -1,0 +1,12 @@
+@use '../../styles/variables' as *;
+
+.Input {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-bottom: 2px solid $graphite;
+
+  &:focus {
+    outline: none;
+  }
+}

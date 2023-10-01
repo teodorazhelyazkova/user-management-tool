@@ -1,0 +1,8 @@
+@use '../../styles/variables' as *;
+
+.Error {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: $red;
+  min-height: 25px;
+}

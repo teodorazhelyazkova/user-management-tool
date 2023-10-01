@@ -4,3 +4,11 @@
 .disabled {
   opacity: 0.35;
 }
+
+.hidden {
+  visibility: hidden;
+}
+
+.invalid {
+  background-color: $lightRed;
+}
