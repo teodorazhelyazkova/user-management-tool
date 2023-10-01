@@ -4,12 +4,10 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   width: 60%;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   gap: 1.2rem;
   margin: 5rem auto;
-  padding: 3rem;
+  padding: 4rem 6rem;
   box-shadow: 0px 0px 30px $shadow;
 
   &__Modal {
@@ -21,14 +19,48 @@
     top: 5vh;
   }
 
+  &__Names {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    width: 100%;
+    position: relative;
+  }
+
+  &__Email {
+    position: relative;
+    width: 100%;
+  }
+
+  &__Label {
+    color: $blue;
+    font-size: 0.75rem;
+  }
+
+  &__Role {
+    position: relative;
+    width: 50%;
+  }
+
+  &__Icon {
+    position: absolute;
+    left: -50px;
+  }
+
   &__Select {
     width: 100%;
-    padding: 1rem;
+    padding: 0.5rem;
     border: none;
     border-bottom: 2px solid $graphite;
 
     &:focus {
       outline: none;
     }
+  }
+
+  &__ButtonContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }

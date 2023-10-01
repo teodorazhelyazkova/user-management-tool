@@ -20,60 +20,67 @@ interface InviteUserFormProps {
 export const InviteUserForm: FC<InviteUserFormProps> = (props) => {
   return (
     <form
-      data-testid="inviteUserForm"
       className={cn(styles.InviteUserForm, {
         [styles.InviteUserForm__Modal]: true,
         hidden: !props.isVisible,
       })}
       onSubmit={props.submitHandler}
     >
-      <Title title={'Invite New User'} />
+      <Title title="Invite New User" />
 
-      <>
-        <FaceIcon />
+      <div className={styles.InviteUserForm__Names}>
+        <FaceIcon className={styles.InviteUserForm__Icon} />
         <InputField
           type="text"
           readOnly={props.isSubmitting}
           name="firstName"
           isValid={props.isInputValid}
-          label={'* First Name'}
+          label="* First Name"
         />
         <InputField
           type="text"
           readOnly={props.isSubmitting}
           name="lastName"
           isValid={props.isInputValid}
-          label={'* Last Name'}
+          label="* Last Name"
         />
-      </>
+      </div>
 
-      <>
-        <AlternateEmailIcon />
+      <div className={styles.InviteUserForm__Email}>
+        <AlternateEmailIcon className={styles.InviteUserForm__Icon} />
         <InputField
           type="text"
           readOnly={props.isSubmitting}
           name="email"
           isValid={props.isInputValid}
-          label={'* Email'}
+          label="* Email"
         />
-      </>
+      </div>
 
-      <>
-        <VpnKeyIcon />
-        <label htmlFor="role">* Role</label>
-        <select className={styles.InviteUserForm__Select} name="role" id="role">
+      <div className={`${styles.InviteUserForm__Role}`}>
+        <VpnKeyIcon className={styles.InviteUserForm__Icon} />
+        <label htmlFor="role" className={styles.InviteUserForm__Label}>
+          * Role
+        </label>
+        <select
+          className={`${styles.InviteUserForm__Select}`}
+          name="role"
+          placeholder="Role"
+        >
           <option value="Admin">Admin</option>
           <option value="User">User</option>
         </select>
-      </>
+      </div>
 
-      <InputError error={props.error} />
-      <SubmitButton
-        disabled={props.isSubmitting}
-        label="Send Invitation"
-        type={'secondary'}
-        size={'small'}
-      />
+      <div className={styles.InviteUserForm__ButtonContainer}>
+        <SubmitButton
+          disabled={props.isSubmitting}
+          label="Send Invitation"
+          type={'secondary'}
+          size={'small'}
+        />
+        <InputError error={props.isInputValid ? 'Good to go' : props.error} />
+      </div>
     </form>
   );
 };

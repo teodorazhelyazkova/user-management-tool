@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -12,6 +12,9 @@ import { Toggle } from '../shared/Toggle/Toggle';
 import { UserInfo } from '../UserInfo/UserInfo';
 import { UserRole } from '../UserRole/UserRole';
 import { useData } from '../../AppContext';
+import ReactDOM from 'react-dom';
+import { Overlay } from '../shared/Overlay/Overlay';
+import { RemoveUserModal } from '../RemoveUserModal/RemoveUserModal';
 
 interface IUserProps {
   user: IUser;
@@ -19,7 +22,6 @@ interface IUserProps {
 
 export const User: FC<IUserProps> = ({ user }) => {
   const data = useData()!;
-  const removeHandler = () => {};
   const userStatusToggleHandler = (value: boolean) => {
     const usersCopy = [...data.users];
     const updatedUserIndex = usersCopy.findIndex((u) => u.id === user.id);
@@ -30,6 +32,16 @@ export const User: FC<IUserProps> = ({ user }) => {
 
     data.setUsers(usersCopy);
   };
+  const portalDiv = document.getElementById('portal')!;
+  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+
+  const removeUserHandler = useCallback(() => {
+    setIsModalVisible(true);
+  }, []);
+
+  const closeHandler = useCallback(() => {
+    setIsModalVisible(false);
+  }, []);
 
   return (
     <div id={user.id} className={styles.User}>
@@ -65,11 +77,26 @@ export const User: FC<IUserProps> = ({ user }) => {
           </Link>
           <button
             className={cn('button', styles.User__Button)}
-            onClick={removeHandler}
+            onClick={removeUserHandler}
           >
             <DeleteIcon />
           </button>
         </div>
+        {ReactDOM.createPortal(
+          <>
+            <Overlay isVisible={isModalVisible} onClose={closeHandler} />
+            {isModalVisible && (
+              <RemoveUserModal
+                isVisible={isModalVisible}
+                onClose={closeHandler}
+                id={user.id}
+                isActive={user.isActive}
+                fullName={`${user.firstName} ${user.lastName}`}
+              />
+            )}
+          </>,
+          portalDiv
+        )}
       </div>
     </div>
   );

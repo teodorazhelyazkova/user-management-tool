@@ -1,0 +1,42 @@
+@use '../../styles/variables' as *;
+
+.RemoveUserModal {
+  background-color: $white;
+  position: absolute;
+  z-index: 4;
+  width: 30%;
+  right: 35%;
+  top: 5vh;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin: 5rem auto;
+  padding: 4rem 6rem;
+  box-shadow: 0px 0px 30px $shadow;
+
+  &__ContentContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+    position: relative;
+  }
+
+  &__Content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 0 1.5rem 0;
+    border-bottom: 1px solid $gray;
+  }
+
+  &__Icon {
+    position: absolute;
+    left: -50px;
+  }
+
+  &__ButtonContainer {
+    width: 100%;
+  }
+}

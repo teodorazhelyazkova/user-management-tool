@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
+import './FloatingLabel.scss';
 import styles from './InputField.module.scss';
 
 interface InputFieldProps {
@@ -13,16 +14,24 @@ interface InputFieldProps {
 
 export const InputField: FC<InputFieldProps> = (props) => {
   return (
-    <>
-      <label>{props.label}</label>
+    <div className={styles.Input}>
       <input
-        className={cn(styles.Input, { invalid: !props.isValid })}
+        placeholder={props.label}
+        className={cn(styles.Input__Control, styles.Input__Field, {
+          invalid: !props.isValid,
+        })}
         type={props.type}
         name={props.name}
         readOnly={props.readOnly}
         autoComplete="off"
         onChange={props.onChange}
       />
-    </>
+      <label
+        htmlFor={props.name}
+        className={`${styles.Input__Field__Label} ${styles.Label__Control}`}
+      >
+        {props.label}
+      </label>
+    </div>
   );
 };

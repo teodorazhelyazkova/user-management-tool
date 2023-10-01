@@ -1,12 +1,58 @@
 @use '../../styles/variables' as *;
 
 .Input {
-  width: 100%;
-  padding: 1rem;
-  border: none;
-  border-bottom: 2px solid $graphite;
+  position: relative;
+  margin: 20px auto 10px auto;
 
-  &:focus {
-    outline: none;
+  &__Control {
+    display: block;
+    line-height: 2em;
+    margin: 0;
+    padding-left: 10px;
+    width: 100%;
+    font-size: medium;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .Label__Control {
+    display: block;
+    position: absolute;
+    opacity: 0;
+    bottom: 1.5rem;
+    color: $lightGray;
+    transition: 0.2s ease-in-out transform;
+    font-size: 12px;
+  }
+
+  &__Control:placeholder-shown + .Label__Control {
+    visibility: hidden;
+    z-index: -1;
+    transition: 0.2s ease-in-out;
+  }
+
+  &__Control:not(:placeholder-shown) + .Label__Control,
+  &__Control:focus:not(:placeholder-shown) + .Label__Control {
+    visibility: visible;
+    z-index: 1;
+    opacity: 1;
+    transform: translateY(-10px);
+    transition: 0.2s ease-in-out transform;
+  }
+
+  .Input__Field {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid $graphite;
+
+    &:focus {
+      outline: none;
+    }
+
+    &__Label {
+      color: $blue;
+      font-size: 0.75rem;
+    }
   }
 }

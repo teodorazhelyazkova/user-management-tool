@@ -7,12 +7,11 @@ interface InputErrorProps {
 }
 
 export const InputError: FC<InputErrorProps> = ({ error }) => {
-  const errorVisibility = !error ? 'hidden' : undefined;
-
   return (
     <p
-      data-testid="errorParagraph"
-      className={cn(styles.Error, errorVisibility)}
+      className={cn(styles.Error, {
+        [styles['Error--noError']]: error === 'Good to go',
+      })}
     >
       {error}
     </p>

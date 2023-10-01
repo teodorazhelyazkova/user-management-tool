@@ -32,7 +32,7 @@ export const InviteUserModal: FC<IInviteUserProps> = (props) => {
     const role = (e.currentTarget.elements[3] as HTMLFormElement).value;
 
     if (firstName === '' || lastName === '' || email === '' || role === '') {
-      return setError('All fields are required');
+      return setError('Fill in all the fields');
     }
 
     const newUser: IUser = {
