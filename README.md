@@ -1,7 +1,5 @@
 ## Application setup
 
-First follow the instructions in the main folder to setup the back-end and follow the ones below for the front-end app.
-
 Install dependencies with Node.js v14.18.3
 
 ```bash
